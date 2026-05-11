@@ -1,0 +1,30 @@
+Package: tessera
+Title: Genomic-Driven Biomarker Identification for Colorectal Cancer
+Version: 0.1.0
+Authors@R:
+    person("Principal", "Statistician", , "stats@example.com", role = c("aut", "cre"))
+Description: A statistics-focused R package supporting the in-silico validation
+    of a colorectal-cancer polygenic risk score (CRC-PRS) as a genetically
+    anchored stratification signal for circulating CEA, using a simulated
+    UK-Biobank-like clinical cohort. Provides utilities to simulate the
+    cohort, fit linear and logistic regression models, run interaction
+    tests, and produce publication-ready plots for Quarto reporting.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends:
+    R (>= 4.1)
+Imports:
+    stats,
+    dplyr,
+    tibble,
+    tidyr,
+    broom,
+    ggplot2,
+    rlang
+Suggests:
+    testthat (>= 3.0.0),
+    knitr,
+    quarto
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Config/testthat/edition: 3

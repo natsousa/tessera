@@ -1,0 +1,23 @@
+---
+title: "tessera"
+subtitle: "Genomic-driven biomarker identification for colorectal cancer"
+---
+
+## Project hypothesis
+
+> **In a UK-Biobank–like clinical cohort, a colorectal-cancer polygenic risk
+> score (CRC-PRS) is associated with circulating CEA levels independently
+> of age, sex, BMI and smoking — supporting CEA as a genetically anchored,
+> in-silico-validated stratification biomarker for CRC risk.**
+
+## What this site contains
+
+- A statistically rigorous report on a simulated biobank-like clinical cohort
+  (n = 5,000) with PRS, CEA, CRC case/control status and the standard
+  clinical covariates.
+- Primary analysis: linear regression of `log(CEA)` on PRS adjusting for
+  age, sex, BMI and smoking.
+- Secondary analyses: logistic regression for CRC case/control, PRS×sex
+  interaction LRT, discrimination (AUC).
+
+See the [Statistical report](report.qmd).

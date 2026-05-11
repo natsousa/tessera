@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+analysis/_site/
+analysis/_freeze/
+analysis/.quarto/
+analysis/report_files/
+analysis/report.html
+*.html
+.DS_Store

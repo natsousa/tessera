@@ -1,0 +1,9 @@
+^analysis$
+^data-raw$
+^README\.md$
+^LICENSE$
+^\.github$
+^\.devcontainer$
+^\.gitignore$
+^_site$
+^\.quarto$

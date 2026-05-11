@@ -1,0 +1,44 @@
+{
+    "name": "tessera",
+    // Rocker image: R 4.4 + tidyverse + Quarto already installed.
+    // Pulling this is much faster than building R from scratch.
+    "image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.4",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "r.rpath.linux": "/usr/local/bin/R",
+                "r.bracketedPaste": true,
+                "r.plot.useHttpgd": true
+            },
+            "extensions": [
+                "reditorsupport.r",
+                "quarto.quarto",
+                "github.copilot"
+            ]
+        }
+    },
+    // Install package extras. survminer/ggpubr's transitive deps need
+    // libnlopt-dev (via nloptr) so we apt-install it first.
+    // knitr/rmarkdown/xfun are refreshed because the image ships an older
+    // knitr that calls the now-renamed xfun::attr (-> xfun::attr2).
+    "postCreateCommand": [
+        "bash",
+        "-lc",
+        "apt-get update && apt-get install -y --no-install-recommends libnlopt-dev; Rscript -e 'install.packages(c(\"broom\",\"ggplot2\",\"tibble\",\"dplyr\",\"tidyr\",\"rlang\",\"devtools\",\"testthat\",\"usethis\"), repos=\"https://cloud.r-project.org\")'; Rscript -e 'install.packages(c(\"knitr\",\"rmarkdown\",\"xfun\"), repos=\"https://CRAN.R-project.org\")'; Rscript -e 'devtools::install(\".\", upgrade=FALSE)'"
+    ],
+    "remoteUser": "root",
+    // Ports used to view the rendered report in a browser tab.
+    //  - 4848: `quarto preview analysis/report.qmd` default port
+    //  - 8000: `python3 -m http.server 8000 --directory analysis`
+    "forwardPorts": [4848, 8000],
+    "portsAttributes": {
+        "4848": {
+            "label": "Quarto Preview",
+            "onAutoForward": "openPreview"
+        },
+        "8000": {
+            "label": "Report (static)",
+            "onAutoForward": "openPreview"
+        }
+    }
+}
