@@ -1,4 +1,4 @@
-# tessera
+# tessera: Genomic-driven biomarker validation for colorectal cancer
 
 > *Each polygenic tile completes the mosaic of cancer risk.*
 
